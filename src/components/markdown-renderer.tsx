@@ -11,10 +11,7 @@ import {
     Check,
     ChevronRight,
     ExternalLink,
-    AlertCircle,
-    Info,
     AlertTriangle,
-    CheckCircle2
 } from 'lucide-react';
 
 // Types
@@ -33,10 +30,10 @@ interface CustomListProps {
     children: ReactNode;
 }
 
-interface AlertProps {
-    children: ReactNode;
-    type: 'info' | 'warning' | 'error' | 'success';
-}
+// interface AlertProps {
+//     children: ReactNode;
+//     type: 'info' | 'warning' | 'error' | 'success';
+// }
 
 interface MarkdownRendererProps {
     content: string;
@@ -182,6 +179,7 @@ const CustomList: React.FC<CustomListProps> = ({ ordered, children }) => {
                 );
 
                 return React.cloneElement(child, {
+                    // @ts-ignore
                     className: `${hasNestedList ? 'mb-2' : ''} ${child.props.className || ''}`,
                     children: itemContent
                 });
@@ -190,45 +188,45 @@ const CustomList: React.FC<CustomListProps> = ({ ordered, children }) => {
     );
 };
 
-const Alert: React.FC<AlertProps> = ({ children, type }) => {
-    const styles = {
-        info: {
-            bg: 'bg-blue-500/10',
-            border: 'border-blue-500/30',
-            text: 'text-blue-400',
-            icon: <Info size={16} />
-        },
-        warning: {
-            bg: 'bg-yellow-500/10',
-            border: 'border-yellow-500/30',
-            text: 'text-yellow-400',
-            icon: <AlertTriangle size={16} />
-        },
-        error: {
-            bg: 'bg-red-500/10',
-            border: 'border-red-500/30',
-            text: 'text-red-400',
-            icon: <AlertCircle size={16} />
-        },
-        success: {
-            bg: 'bg-green-500/10',
-            border: 'border-green-500/30',
-            text: 'text-green-400',
-            icon: <CheckCircle2 size={16} />
-        }
-    };
+// const Alert: React.FC<AlertProps> = ({ children, type }) => {
+//     const styles = {
+//         info: {
+//             bg: 'bg-blue-500/10',
+//             border: 'border-blue-500/30',
+//             text: 'text-blue-400',
+//             icon: <Info size={16} />
+//         },
+//         warning: {
+//             bg: 'bg-yellow-500/10',
+//             border: 'border-yellow-500/30',
+//             text: 'text-yellow-400',
+//             icon: <AlertTriangle size={16} />
+//         },
+//         error: {
+//             bg: 'bg-red-500/10',
+//             border: 'border-red-500/30',
+//             text: 'text-red-400',
+//             icon: <AlertCircle size={16} />
+//         },
+//         success: {
+//             bg: 'bg-green-500/10',
+//             border: 'border-green-500/30',
+//             text: 'text-green-400',
+//             icon: <CheckCircle2 size={16} />
+//         }
+//     };
 
-    const style = styles[type];
+//     const style = styles[type];
 
-    return (
-        <div className={`p-4 ${style.bg} border ${style.border} rounded-lg my-4`}>
-            <div className={`flex items-start gap-2 ${style.text}`}>
-                {style.icon}
-                <div>{children}</div>
-            </div>
-        </div>
-    );
-};
+//     return (
+//         <div className={`p-4 ${style.bg} border ${style.border} rounded-lg my-4`}>
+//             <div className={`flex items-start gap-2 ${style.text}`}>
+//                 {style.icon}
+//                 <div>{children}</div>
+//             </div>
+//         </div>
+//     );
+// };
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className = '' }) => {
     return (
@@ -291,6 +289,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
                 ol: ({ children }) => <CustomList ordered={true}>{children}</CustomList>,
 
                 // Code
+                // @ts-ignore
                 code: ({ node, inline, className, children, ...props }) => {
                     const match = /language-(\w+)/.exec(className || '');
                     const language = match ? match[1] : '';

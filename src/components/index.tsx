@@ -57,7 +57,7 @@ export default function Portfolio() {
     const blogRef = useRef(null);
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
 
@@ -65,7 +65,7 @@ export default function Portfolio() {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
-    const scrollToSection = (ref) => {
+    const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
         ref.current?.scrollIntoView({ behavior: 'smooth' });
         setIsMenuOpen(false);
     };
@@ -170,6 +170,7 @@ export default function Portfolio() {
                     <div className="space-y-8 mt-12">
                         {navItems.map((item) => (
                             <div
+                                // @ts-ignore
                                 key={item.label}
                                 onClick={() => scrollToSection(item.ref)}
                                 className="text-[#8892B0] text-xl font-semibold cursor-pointer hover:text-[#64FFDA] transition-colors duration-200"
@@ -190,6 +191,7 @@ export default function Portfolio() {
                     <nav className="space-y-4 text-sm">
                         {navItems.map((item) => (
                             <div
+                                // @ts-ignore
                                 key={item.label}
                                 onClick={() => scrollToSection(item.ref)}
                                 className="text-[#8892B0] uppercase tracking-wider text-xs font-semibold mb-4 cursor-pointer hover:text-[#64FFDA] transition-colors duration-200"
@@ -240,6 +242,8 @@ export default function Portfolio() {
                         <div className="space-y-12">
                             {experiences.map((exp, index) => (
                                 <div
+                                    // @ts-ignore
+                                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                                     key={index}
                                     className="relative border-l-2 border-[#1f3154] pl-6 transform hover:scale-[1.02] transition-transform duration-200"
                                 >
@@ -253,6 +257,7 @@ export default function Portfolio() {
                                     <div className="flex gap-2 mt-4 flex-wrap">
                                         {exp.technologies.map((tech, idx) => (
                                             <span
+                                                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                                                 key={idx}
                                                 className="px-2 py-1 text-xs rounded bg-[#1f3154]/30 text-[#64FFDA]"
                                             >
@@ -273,6 +278,7 @@ export default function Portfolio() {
                         <div className="grid gap-8">
                             {projects.map((project, index) => (
                                 <div
+                                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                                     key={index}
                                     className="group relative bg-[#0a101f] border border-[#1f3154] rounded-lg p-6 
                          transition-all duration-300 hover:bg-[#1f3154]/30 
@@ -288,6 +294,7 @@ export default function Portfolio() {
                                     <div className="flex gap-2 flex-wrap">
                                         {project.technologies.map((tech, idx) => (
                                             <span
+                                                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                                                 key={idx}
                                                 className="px-2 py-1 text-xs rounded bg-[#1f3154]/30 text-[#64FFDA]"
                                             >
@@ -308,6 +315,7 @@ export default function Portfolio() {
                         <div className="grid gap-8 md:grid-cols-2">
                             {testimonials.map((testimonial, index) => (
                                 <div
+                                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                                     key={index}
                                     className="bg-[#0a101f] border border-[#1f3154] p-6 rounded-lg 
                          transition-all duration-300 hover:bg-[#1f3154]/30
@@ -366,6 +374,7 @@ export default function Portfolio() {
 
             {/* Mobile Menu Button */}
             <button
+                type='button'
                 onClick={() => setIsMenuOpen(true)}
                 className="fixed md:hidden bottom-6 right-6 z-50 p-3 bg-[#1f3154] rounded-full text-[#64FFDA] hover:bg-[#64FFDA]/10 transition-colors duration-200"
                 aria-label="Toggle mobile menu"
