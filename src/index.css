@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+a, button, [role="button"] {
+    cursor: none;
+}
+* {
+    cursor: none !important;
+} */

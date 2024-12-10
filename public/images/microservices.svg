@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B1B1D"/>
+      <stop offset="100%" style="stop-color:#2B2B30"/>
+    </linearGradient>
+    
+    <!-- Connection lines pattern -->
+    <pattern id="connections" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 50 100 M 0 50 L 100 50" stroke="#3B3B40" stroke-width="0.5"/>
+    </pattern>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Hexagon pattern for microservices -->
+    <pattern id="hexagons" width="50" height="43.4" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
+      <path d="M25 0 L50 14.4 L50 43.4 L25 57.8 L0 43.4 L0 14.4 Z" fill="none" stroke="#3B3B40" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Main background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Hexagon pattern overlay -->
+  <rect width="1200" height="630" fill="url(#hexagons)" opacity="0.1"/>
+  
+  <!-- Connection pattern overlay -->
+  <rect width="1200" height="630" fill="url(#connections)" opacity="0.15"/>
+
+  <!-- Main content -->
+  <g transform="translate(600, 315)">
+    <!-- Service nodes and connections -->
+    <g filter="url(#glow)">
+      <!-- Central Node.js service -->
+      <circle cx="0" cy="0" r="60" fill="#68A063"/>
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle">Node.js</text>
+      
+      <!-- Surrounding microservices -->
+      <!-- Auth Service -->
+      <circle cx="-150" cy="-100" r="40" fill="#2496ED"/>
+      <text x="-150" y="-100" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">Auth</text>
+      
+      <!-- User Service -->
+      <circle cx="150" cy="-100" r="40" fill="#2496ED"/>
+      <text x="150" y="-100" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">Users</text>
+      
+      <!-- Order Service -->
+      <circle cx="-150" cy="100" r="40" fill="#2496ED"/>
+      <text x="-150" y="100" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">Orders</text>
+      
+      <!-- Notification Service -->
+      <circle cx="150" cy="100" r="40" fill="#2496ED"/>
+      <text x="150" y="100" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">Notify</text>
+    </g>
+
+    <!-- Connection lines -->
+    <g stroke="#4A90E2" stroke-width="2" opacity="0.6">
+      <path d="M -110 -60 L -20 -20" stroke-dasharray="5,5"/>
+      <path d="M 110 -60 L 20 -20" stroke-dasharray="5,5"/>
+      <path d="M -110 60 L -20 20" stroke-dasharray="5,5"/>
+      <path d="M 110 60 L 20 20" stroke-dasharray="5,5"/>
+    </g>
+
+    <!-- Animated data flow particles -->
+    <g fill="#4A90E2">
+      <circle cx="-65" cy="-40" r="3">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="65" cy="-40" r="3">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      </circle>
+      <circle cx="-65" cy="40" r="3">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1s"/>
+      </circle>
+      <circle cx="65" cy="40" r="3">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+      </circle>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <g transform="translate(600, 500)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+      Scalable Microservices
+    </text>
+    <text x="0" y="50" font-family="Arial, sans-serif" font-size="32" fill="#68A063" text-anchor="middle">
+      with Node.js
+    </text>
+  </g>
+
+  <!-- Decorative elements -->
+  <g opacity="0.3">
+    <!-- Top left corner -->
+    <path d="M 50 50 L 150 50 L 150 150" stroke="#68A063" stroke-width="2" fill="none"/>
+    <!-- Bottom right corner -->
+    <path d="M 1150 580 L 1050 580 L 1050 480" stroke="#68A063" stroke-width="2" fill="none"/>
+  </g>
+</svg>
