@@ -70,12 +70,12 @@ const BlogDetail = () => {
             const headings = document.querySelectorAll('h1, h2, h3');
             let currentSection = '';
 
-            headings.forEach((heading) => {
+            for (const heading of headings) {
                 const top = heading.getBoundingClientRect().top;
                 if (top < 100) {
                     currentSection = heading.id;
                 }
-            });
+            }
 
             setActiveSection(currentSection);
         };
@@ -99,7 +99,7 @@ const BlogDetail = () => {
             <div className="min-h-screen bg-slate-900 text-slate-400">
                 <div className="flex flex-col items-center justify-center min-h-96 gap-4">
                     <div className="text-slate-300">{error || 'Post not found'}</div>
-                    <a href="/blog" className="inline-flex items-center px-6 py-3 bg-transparent border border-teal-400 text-teal-400 rounded-md hover:bg-teal-400/10 transition-all duration-300">
+                    <a href="/" className="inline-flex items-center px-6 py-3 bg-transparent border border-teal-400 text-teal-400 rounded-md hover:bg-teal-400/10 transition-all duration-300">
                         <ArrowLeft className="mr-2 w-4 h-4" />
                         Back to Blog
                     </a>
@@ -115,7 +115,7 @@ const BlogDetail = () => {
                     {/* Main Content */}
                     <article className="lg:col-span-3">
                         {/* Navigation */}
-                        <a href="/blog" className="inline-flex items-center text-teal-400 hover:text-slate-300 mb-8 transition-colors duration-200">
+                        <a href="/" className="inline-flex items-center text-teal-400 hover:text-slate-300 mb-8 transition-colors duration-200">
                             <ArrowLeft className="mr-2 w-4 h-4" />
                             Back to Blog
                         </a>
@@ -158,9 +158,9 @@ const BlogDetail = () => {
 
                         {/* Tags */}
                         <div className="flex gap-2 flex-wrap mb-8">
-                            {post.tags.map((tag, index) => (
+                            {post.tags.map((tag) => (
                                 <span
-                                    key={index}
+                                    key={tag}
                                     className="text-sm px-3 py-1 rounded-full bg-slate-800 text-teal-400 hover:bg-slate-700 cursor-pointer transition-colors duration-200"
                                 >
                                     #{tag}
@@ -199,9 +199,9 @@ const BlogDetail = () => {
                                             </a>
                                             {section.subSections && (
                                                 <div className="ml-4 space-y-1">
-                                                    {section.subSections.map((subSection, index) => (
+                                                    {section.subSections.map((subSection) => (
                                                         <a
-                                                            key={index}
+                                                            key={subSection}
                                                             href={`#${subSection.toLowerCase().replace(/\s+/g, '-')}`}
                                                             className="block py-1 text-sm text-slate-500 hover:text-teal-400 transition-colors duration-200"
                                                         >

@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, type ReactNode } from 'react';
-import { Github, Linkedin, Mail, Menu, X, ExternalLink, Quote } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { BlogSection } from './blog-section';
+import { Link } from 'react-router';
 
 
 const RevealSection = ({ children }: { children: ReactNode }) => {
@@ -52,7 +53,7 @@ export default function Portfolio() {
     const aboutRef = useRef(null);
     const experienceRef = useRef(null);
     const projectsRef = useRef(null);
-    const testimonialsRef = useRef(null);
+    // const testimonialsRef = useRef(null);
     const contactRef = useRef(null);
     const blogRef = useRef(null);
 
@@ -74,69 +75,118 @@ export default function Portfolio() {
         { label: 'ABOUT', ref: aboutRef },
         { label: 'EXPERIENCE', ref: experienceRef },
         { label: 'PROJECTS', ref: projectsRef },
-        { label: 'TESTIMONIALS', ref: testimonialsRef },
+        // { label: 'TESTIMONIALS', ref: testimonialsRef },
         { label: 'CONTACT', ref: contactRef }
     ];
 
     const experiences = [
         {
-            period: "2024/03 - 2024/08",
-            title: "Full Stack Developer",
-            company: "Sursa Technology",
-            description: "Led a team of developers to design, develop, and maintain a sophisticated Next.js application. Collaborated with cross-functional teams and ensured high-quality code delivery.",
-            technologies: ["Next.js", "React", "TypeScript", "Node.js"]
+            period: "2018 - 2018",
+            title: "Web Developer(Intern)",
+            company: "Empathy It Club",
+            description: "I had worked in the Empathy IT Club for 3 months as a Web Application Developer in Node js Programming Language.",
+            technologies: ["TypeScript", "Node.js"]
         },
         {
-            period: "2023/09 - present",
+            period: "2020 - present",
             title: "Freelancer",
             company: "Software Engineer",
-            description: "Specialized in Node.js applications, Supabase optimizations, and AI integration through OpenAI's ChatGPT APIs and LangChain.",
-            technologies: ["Node.js", "Supabase", "OpenAI API", "LangChain"]
+            description: `
+            As a freelance developer, my strengths lie in developing advanced Node.js applications
+and improving database efficiency with Supabase optimizations. I specialize in
+incorporating AI through OpenAI'
+s ChatGPT APIs and LangChain, delivering custom
+AI-enhanced solutions. I focus on creating scalable, high-performance backend systems
+with Node.js for optimal functionality and reliability. My proficiency in Supabase
+enhances database management and performance, while my experience with ChatGPT
+APIs enables the integration of advanced natural language processing, elevating
+application intelligence and user engagement.
+`,
+            technologies: ["Node.js", "Supabase", "OpenAI API", "LangChain", "python", "LLMS"]
         },
         {
             period: "2021 - 2023/08",
-            title: "Software Engineer",
+            title: "LLM Engineer",
             company: "Vurilo Nepal",
-            description: "Worked as a front-end application lead and full-stack developer, utilizing AWS services and managing teaching domain applications.",
+            description: `
+            At Sursa Technology, I worked as an LLM Engineer on a contract basis, leading a team
+of developers to design, develop, and integrate advanced AI-powered features into a
+sophisticated Next.js application. I collaborated closely with cross-functional teams to
+define, design, and implement functionalities leveraging large language models, ensuring
+a responsive and intelligent user interface. My responsibilities included fine-tuning
+LLMs, optimizing inference performance, debugging complex AI-related issues, and
+following best practices to ensure model reliability and maintainability. Through my
+leadership and technical expertise, we successfully delivered the project within the
+contract period, significantly enhancing the application
+’
+s capabilities and user
+    experience.
+            `,
             technologies: ["AWS", "React", "Node.js", "Full Stack"]
         }
     ];
 
     const projects = [
         {
+            title: 'MSecurity',
+            description: 'Mobile Security Application with License Management System.',
+            technologies: ["Mobile", "Security", "Licensing"],
+            link: "https://msecurity.app/"
+        },
+        {
             title: "WriteGPT",
             description: "The multi-function web extension harnessing Chat GPT on any website while facilitating effective prompt engineering for content creation & consumption.",
             technologies: ["React", "OpenAI", "Chrome Extension"],
-            link: "#"
+            link: "https://writegpt.ai"
         },
+
         {
-            title: "MSecurity",
-            description: "Worked on developing a licensing system for mobile antivirus AMD.",
-            technologies: ["Mobile", "Security", "Licensing"],
-            link: "#"
-        },
-        {
-            title: "Vurilo E-learning",
-            description: "E-learning Platform with comprehensive LMS features.",
+            title: "Buy me a Momo",
+            description: "Fundraising App",
             technologies: ["React", "Node.js", "AWS"],
-            link: "#"
+            link: "https://www.buymeamomo.org/"
+        },
+        {
+            title: "Euvin.ro",
+            description: "E-invitation App for weddings and events.",
+            technologies: ["Nextjs", "Node.js", "AWS"],
+            link: "https://www.euvin.ro/"
+        },
+        {
+            title: "Transform The Day",
+            description: `Developed and maintained backend services for Transform The Day, a social media
+automation platform with AI-driven content generation and scheduling features. Built
+and optimized APIs to support personalized marketing strategies, appointment
+scheduling, and daily organization tools. Collaborated with cross-functional teams to
+ensure scalability, performance, and seamless user experience. Contributed to feature
+rollouts and enhancements, including chat interfaces and advanced content management
+functionalities.`,
+            technologies: ["React", "Node.js", "AWS"],
+            link: "https://www.transformtheday.com/"
         }
     ];
 
-    const testimonials = [
-        {
-            content: "Working with Aryan was an absolute pleasure. His attention to detail and commitment to code quality made our project a huge success.",
-            name: "Dilip Thapa",
-            role: "CEO at Sursa Technology",
-            image: "/api/placeholder/48/48"
-        },
-        {
-            content: "His understanding of both frontend and backend makes him a unique talent. He bridges the gap between design and functionality perfectly.",
-            name: "Lead Developer",
-            role: "Vurilo Nepal",
-            image: "/api/placeholder/48/48"
-        }
-    ];
+    // const testimonials = [
+    //     {
+    //         content: "Working with Aryan was an absolute pleasure. His attention to detail and commitment to code quality made our project a huge success.",
+    //         name: "Dilip Thapa",
+    //         role: "CEO at Sursa Technology",
+    //         image: "/api/placeholder/48/48"
+    //     },
+    //     {
+    //         content: "His understanding of both frontend and backend makes him a unique talent. He bridges the gap between design and functionality perfectly.",
+    //         name: "Lead Developer",
+    //         role: "Vurilo Nepal",
+    //         image: "/api/placeholder/48/48"
+    //     },
+    //     {
+    //         content: "His understanding of both frontend and backend makes him a unique talent. He bridges the gap between design and functionality perfectly.",
+    //         name: "Lead Developer",
+    //         role: "Vurilo Nepal",
+    //         image: "/api/placeholder/48/48"
+    //     }
+
+    // ];
 
     return (
         <div className="relative min-h-screen bg-[#0a101f] text-[#8B949E] font-mono overflow-x-hidden">
@@ -169,8 +219,8 @@ export default function Portfolio() {
                     </button>
                     <div className="space-y-8 mt-12">
                         {navItems.map((item) => (
+                            // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                             <div
-                                // @ts-ignore
                                 key={item.label}
                                 onClick={() => scrollToSection(item.ref)}
                                 className="text-[#8892B0] text-xl font-semibold cursor-pointer hover:text-[#64FFDA] transition-colors duration-200"
@@ -186,12 +236,12 @@ export default function Portfolio() {
             <div className="fixed left-0 top-0 h-screen w-64 p-8 border-r border-[#1f3154] bg-[#0a101f]/80 backdrop-blur-sm z-20 hidden md:block">
                 <div className="mb-12">
                     <h1 className="text-2xl font-bold text-[#CCD6F6] mb-1">Aryan Phuyal</h1>
-                    <h2 className="text-lg text-[#8892B0] mb-8">Full Stack Developer</h2>
+                    <h2 className="text-lg text-[#8892B0] mb-8">LLM Engineer</h2>
 
                     <nav className="space-y-4 text-sm">
                         {navItems.map((item) => (
+                            // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                             <div
-                                // @ts-ignore
                                 key={item.label}
                                 onClick={() => scrollToSection(item.ref)}
                                 className="text-[#8892B0] uppercase tracking-wider text-xs font-semibold mb-4 cursor-pointer hover:text-[#64FFDA] transition-colors duration-200"
@@ -226,10 +276,9 @@ export default function Portfolio() {
                         <div className="max-w-2xl">
                             <h2 className="text-[#64FFDA] text-lg mb-4">Hi, my name is</h2>
                             <h1 className="text-4xl md:text-6xl font-bold text-[#CCD6F6] mb-4">Aryan Phuyal.</h1>
-                            <h2 className="text-2xl md:text-4xl font-bold text-[#8892B0] mb-6">I build things for the web.</h2>
-                            <p className="text-[#8892B0] leading-relaxed mb-4 text-lg">
-                                I am a hardworking, motivated developer with extensive knowledge in the field through study and research.
-                                Currently, I am learning DevOps and k8s while pursuing my MscIT in Data Analytics.
+                            <h2 className="text-2xl md:text-4xl font-bold text-[#8892B0] mb-6">I build AI-powered web applications using large language models.</h2>
+                            <p className="text-[#8892B0] leading-relaxed  text-lg">
+                                As a skilled <b>LLM (Large Language Model) Engineer</b>, I specialize in developing, fine-tuning, and optimizing state-of-the-art AI models, with a focus on language processing and understanding. With a strong foundation in natural language processing (NLP) and machine learning, I design and implement robust solutions to solve complex language-related challenges. I have experience working with popular LLM frameworks such as OpenAI's GPT, Google's BERT, and Hugging Face Transformers, and have a deep understanding of model architectures, training techniques, and optimization strategies.
                             </p>
                         </div>
                     </RevealSection>
@@ -240,11 +289,9 @@ export default function Portfolio() {
                     <RevealSection>
                         <h2 className="text-[#CCD6F6] text-2xl font-semibold mb-12">Experience</h2>
                         <div className="space-y-12">
-                            {experiences.map((exp, index) => (
+                            {experiences.map((exp) => (
                                 <div
-                                    // @ts-ignore
-                                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                                    key={index}
+                                    key={exp.company}
                                     className="relative border-l-2 border-[#1f3154] pl-6 transform hover:scale-[1.02] transition-transform duration-200"
                                 >
                                     <div className="absolute w-3 h-3 bg-[#64FFDA] rounded-full -left-[7px] top-2" />
@@ -276,40 +323,40 @@ export default function Portfolio() {
                     <RevealSection>
                         <h2 className="text-[#CCD6F6] text-2xl font-semibold mb-12">Featured Projects</h2>
                         <div className="grid gap-8">
-                            {projects.map((project, index) => (
-                                <div
-                                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                                    key={index}
-                                    className="group relative bg-[#0a101f] border border-[#1f3154] rounded-lg p-6 
+                            {projects.map((project) => (
+                                <Link to={project.link} key={project.link} target="_blank" rel="noopener noreferrer">
+                                    <div
+
+                                        className="group relative bg-[#0a101f] border border-[#1f3154] rounded-lg p-6 
                          transition-all duration-300 hover:bg-[#1f3154]/30 
                          transform hover:scale-[1.02]"
-                                >
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h3 className="text-[#CCD6F6] font-semibold text-xl group-hover:text-[#64FFDA] flex items-center">
-                                            {project.title}
-                                            <ExternalLink className="inline-block ml-2 w-4 h-4" />
-                                        </h3>
-                                    </div>
-                                    <p className="text-[#8892B0] mb-4">{project.description}</p>
-                                    <div className="flex gap-2 flex-wrap">
-                                        {project.technologies.map((tech, idx) => (
-                                            <span
-                                                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                                                key={idx}
-                                                className="px-2 py-1 text-xs rounded bg-[#1f3154]/30 text-[#64FFDA]"
-                                            >
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                                    >
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h3 className="text-[#CCD6F6] font-semibold text-xl group-hover:text-[#64FFDA] flex items-center">
+                                                {project.title}
+                                                <ExternalLink className="inline-block ml-2 w-4 h-4" />
+                                            </h3>
+                                        </div>
+                                        <p className="text-[#8892B0] mb-4">{project.description}</p>
+                                        <div className="flex gap-2 flex-wrap">
+                                            {project.technologies.map((tech, idx) => (
+                                                <span
+                                                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                                                    key={idx}
+                                                    className="px-2 py-1 text-xs rounded bg-[#1f3154]/30 text-[#64FFDA]"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div></Link>
                             ))}
                         </div>
                     </RevealSection>
                 </section>
 
                 {/* Testimonials Section */}
-                <section ref={testimonialsRef} className="mb-16 pt-16">
+                {/* <section ref={testimonialsRef} className="mb-16 pt-16">
                     <RevealSection>
                         <h2 className="text-[#CCD6F6] text-2xl font-semibold mb-12">Testimonials</h2>
                         <div className="grid gap-8 md:grid-cols-2">
@@ -338,6 +385,12 @@ export default function Portfolio() {
                             ))}
                         </div>
                     </RevealSection>
+                </section> */}
+                {/* Blog Section */}
+                <section ref={blogRef} className="mb-16 pt-16">
+                    <RevealSection>
+                        <BlogSection />
+                    </RevealSection>
                 </section>
 
                 {/* Contact Section */}
@@ -357,12 +410,7 @@ export default function Portfolio() {
                     </RevealSection>
                 </section>
 
-                {/* Blog Section */}
-                <section ref={blogRef} className="mb-16 pt-16">
-                    <RevealSection>
-                        <BlogSection />
-                    </RevealSection>
-                </section>
+
 
                 {/* Footer */}
                 <footer className="text-center text-[#8892B0] py-8 mt-16 border-t border-[#1f3154]">
