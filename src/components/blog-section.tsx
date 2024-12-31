@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, ArrowRight, Search, Link } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
 
 export type BlogPost = {
     id: number;
