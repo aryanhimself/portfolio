@@ -118,7 +118,7 @@ export const BlogSection = () => {
             {/* Blog Posts Grid */}
             <div className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredPosts.map((post) => (
-                    <Link to={`/blog/${post.slug}`} key={post.slug}>
+                    <a href={`/blog/${post.slug}`} key={post.slug}>
                         <article
                             key={post.id}
                             className="group bg-[#0a101f] border border-[#1f3154] rounded-lg overflow-hidden
@@ -186,7 +186,7 @@ export const BlogSection = () => {
                                 </a>
                             </div>
                         </article>
-                    </Link>
+                    </a>
                 ))}
             </div>
 
